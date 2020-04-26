@@ -6,7 +6,9 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
+    shows = queries.get_top_length_shows()
+    for show in shows:
+        show['actors'] = queries.get_actors_of_show(show['id'])
     return render_template('index.html', shows=shows)
 
 
