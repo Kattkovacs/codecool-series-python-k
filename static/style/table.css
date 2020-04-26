@@ -1,11 +1,16 @@
 table {
-    width: 100%;
+    width: 49%;
     margin-top: 10px;
 
     border-spacing: 0;
 
     border: 1px solid #278bc4;
     border-radius: 3px;
+    display: inline-table;
+}
+
+.highlighted {
+    background-color: yellow !important;
 }
 
 table th {

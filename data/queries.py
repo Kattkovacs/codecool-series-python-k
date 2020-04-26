@@ -24,6 +24,7 @@ def get_actors_of_show(show):
         FROM shows
         JOIN show_characters sc on shows.id = sc.show_id
         JOIN actors a on sc.actor_id = a.id
-        WHERE shows.id = %{show}s;
+        WHERE shows.id = %{show}s
+        ORDER BY a.name;
         """, {'show': show}
     )
