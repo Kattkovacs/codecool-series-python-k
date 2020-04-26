@@ -11,8 +11,7 @@ def get_genre_tops(genre):
        shows.rating
 
 FROM shows
-Join show_genres sg ON 
-shows.id = sg.shows.id
+JOIN show_genres sg ON shows.id = sg.shows.id
 JOIN genres g ON sg.genre_id = g.id
 WHERE g.name = %{genre}s 
 ORDER BY shows.rating DESC
