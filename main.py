@@ -6,13 +6,14 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-
+    shows = queries.get_shows()
     return render_template('index.html', shows=shows)
 
 @app.route('/post-field', methods=['GET', 'POST'])
 def input_genre():
     genre = request.form['genre']
     shows = queries.get_genre_tops(genre)
+    return redirect('index.html')
 
 
 @app.route('/design')
