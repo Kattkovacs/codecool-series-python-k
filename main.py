@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
@@ -6,13 +6,16 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    return render_template('search.html')
 
 
-@app.route('/design')
+@app.route('/shows_by_name', methods=["POST", "GET"])
 def design():
-    return render_template('design.html')
+    if request.method == "POST":
+        original_search = request.form['search']
+        search = '%' + original_search + '%'
+        shows = queries.get_show_by_title(search)
+    return render_template('index.html', shows=shows, search=original_search)
 
 
 def main():
