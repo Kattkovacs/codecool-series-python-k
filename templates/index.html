@@ -56,13 +56,23 @@
             </p>
         </div>
         <div class="card">
-            <ul>
+            <div>{{ search }}</div>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Rating</th>
+                    <th>Start date</th>
+                    <th>Tailer</th>
+                </tr>
                 {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+                <tr>
+                    <td>{{ show['title'] }}</td>
+                    <td>{{ '%0.1f'% show['rating'] | float }}</td>
+                    <td>{{ show['year'] }}</td>
+                    {% if show['trailer'] %}
+                    <td><button class="trailer"ton></td>
+                </tr>
+            </table>
         </div>
     </section>
     <footer>
