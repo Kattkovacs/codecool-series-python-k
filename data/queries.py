@@ -1,8 +1,9 @@
 from data import data_manager
-
+import psycopg2
 
 def get_shows():
     return data_manager.execute_select('SELECT id, title FROM shows;')
+
 
 def get_top_length_shows():
     return data_manager.execute_select(
@@ -16,6 +17,7 @@ def get_top_length_shows():
         LIMIT 10;        
         """
     )
+
 
 def get_actors_of_show(show):
     return data_manager.execute_select(
