@@ -9,7 +9,7 @@ def index():
     return render_template('search.html')
 
 
-@app.route('/shows_by_name', methods=["POST", "GET"])
+@app.route('/shows-by-name', methods=["POST", "GET"])
 def design():
     if request.method == "POST":
         original_search = request.form['search']
