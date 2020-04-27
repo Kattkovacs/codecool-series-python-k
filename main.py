@@ -6,13 +6,15 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
+    shows = queries.get_genres()
     return render_template('index.html', shows=shows)
 
 
-@app.route('/design')
-def design():
-    return render_template('design.html')
+@app.route('/shows-by-genre/<int:genre_id>', methods=["POST", "GET"])
+def shows_by_genre(genre_id):
+    shows = queries.get_shows_by_genre(genre_id)
+    return render_template('shows.html', shows=shows)
+
 
 
 def main():

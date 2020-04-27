@@ -56,14 +56,13 @@
             </p>
         </div>
         <div class="card">
-            <input type="text">
-            <ul>
                 {% for show in shows %}
-                    <li>
-                        <a href="/shows-by-genre/{{ show['id'] }}" class="genre">{{ show['name'] }}({{ show['count'] }})</a>
-                    </li>
+                    <div class="show-card">
+                        <div>{{ show['title'] }}</div>
+                        <div>{{ show['year'] }}</div>
+                        <div>Actors</div>
+                    </div>
                 {% endfor %}
-            </ul>
         </div>
     </section>
     <footer>
