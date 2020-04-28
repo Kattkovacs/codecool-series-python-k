@@ -57,8 +57,7 @@
         </div>
         <div>
             <p>Find the top 10 rated shows by the given genre! </p>
-
-            <form action="/post_field" method="post">
+            <form action="{{ url_for("index") }}" method="get">
                 <input type="text" name="genre" placeholder="Write here a genre">
                 <input type="submit" value="Submit">
             </form>
