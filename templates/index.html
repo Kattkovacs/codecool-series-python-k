@@ -28,6 +28,7 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </head>
 
@@ -46,23 +47,17 @@
     <section>
         <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
-        </div>
-        <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% for show in shows %}
+            <div class="card-show" data-card-id="card-id">
+                <h3 class="header">{{ show['year'] | int | string }}</h3>
+                <h1 class="avg">{{ show['avarage'] }}</h1>
+                {% if show['count'] ==1 %}
+                    <p class="year">{{ show['count'] }} show</p>
+                {% else %}
+                    <p class="years">{{ show['count'] }} shows</p>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
     </section>
     <footer>
