@@ -44,26 +44,21 @@
         </div>
     </header>
     <section>
-        <h1 class="title text-center">Welcome page</h1>
+        <h1 class="title text-center">Select shows by genre</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
+            <label for="genre">Choose a genre:</label>
+            <form id="select-submit" action="/design" method="post">
+                <select>
+                    {% for show in shows %}
+                    <option value="genre" name="genre">{{ show['genres'] }}</option>
+                    {% endfor %}
+                </select>
+
+                <input type="submit">
+            </form>
         </div>
-        <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+
+
     </section>
     <footer>
         Copyright, bla-bla

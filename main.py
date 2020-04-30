@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
@@ -10,9 +10,12 @@ def index():
     return render_template('index.html', shows=shows)
 
 
-@app.route('/design')
+@app.route('/design', methods=["POST", "GET"])
 def design():
-    return render_template('design.html')
+    if request.method == "POST":
+        genre = request.form('genre')
+        shows = queries.get_shows_by_genre(genre)
+        return render_template('design.html', shows=shows, genre=genre)
 
 
 def main():
