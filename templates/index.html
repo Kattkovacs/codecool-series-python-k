@@ -52,7 +52,7 @@
             {% for show in shows %}
             <div class="card-show" data-card-id="card-id">
                 <h3 class="header">{{ show['year'] | int | string }}</h3>
-                <h1 class="avg">{{ show['avarage'] }}</h1>
+                <h1 class="avg" data-card-avg="{{ show['average'] }}">{{ show['average'] }}</h1>
                 {% if show['count'] ==1 %}
                     <p class="year">{{ show['count'] }} show</p>
                 {% else %}
