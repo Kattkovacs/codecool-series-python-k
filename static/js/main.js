@@ -29,12 +29,5 @@ function getAverage() {
         let newTotal = (parseFloat(newAverage)+parseFloat(oldAvg))/counter;
         document.querySelector('#avg').innerHTML = String(newTotal);
     }
-
 }
-
 }
-
-
-
-//     .children;
-// document.querySelector('#avg').innerHTML = collectHighs;
