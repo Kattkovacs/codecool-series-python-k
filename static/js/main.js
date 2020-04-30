@@ -13,17 +13,6 @@ function changeBackground(e) {
             let collectHighs = document.querySelectorAll('.highlighted');
             selectedCard.classList.add('highlighted');
             getAverage();
-
-            // if (collectHighs.length===1){
-            //
-            //     let oneHighChild = document.querySelectorAll('.avg');
-            //     document.querySelector('#avg').innerHTML = oneHighChild.text;
-            // } else {
-            //     for (let high of collectHighs) {
-            //         let highChild = document.querySelector('.avg');
-            //         document.querySelector('#avg').innerHTML = highChild.text;
-            //     }
-            // }
         }
 
 function getAverage() {
