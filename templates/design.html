@@ -28,7 +28,7 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
-    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
 
 </head>
 
@@ -49,8 +49,8 @@
         <div class="card">
             {% for show in shows %}
             <div class="card-shows">
-                <p>{{ show['title'] }}</p>
-                <span display="None">{{ show[''] }}</span>
+                <h3>{{ show['title'] }}</h3>
+                <span class="overview">{{ show['overview'] }}</span>
             </div>
             {% endfor %}
         </div>
