@@ -46,14 +46,15 @@
     <section>
         <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
+            <form name="year" action="/" method="post">
+                <label for="year">Choose a year:</label><br>
+                <select>
+                    {% for show in shows %}
+                    <option name="year" value="year">{{ show['year'] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit">
+            </form>
         </div>
         <div class="card">
             <ul>
