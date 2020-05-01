@@ -49,9 +49,10 @@
             {% for show in shows %}
                 {% if show['status']=='alive' %}
                 <div class="show-card">
-                    <div>{{ show['name'] }}</div>
-                    <div>({{ show['age'] }})</div>
-                    <div><h2>{{ show['number_of_shows'] }}</h2></div>
+                    <h4>{{ show['name'] }}</h4>
+                    <h3>({{ show['age'] }})</h3>
+                    <h2>{{ show['number_of_shows'] }}</h2>
+                        <h4>{{ show['status'] }}</h4>
                 </div>
                 {% endif %}
             {% endfor %}

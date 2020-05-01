@@ -7,6 +7,7 @@ app = Flask('codecool_series')
 @app.route('/')
 def actors():
     shows = queries.get_actors_by_title()
+    print(shows)
     return render_template('actors.html', shows=shows)
 
 
