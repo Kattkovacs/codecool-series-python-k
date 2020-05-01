@@ -1,13 +1,18 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    if request.method == "POST":
+        original_search = request.form['search']
+        search = f"%{original_search}%"
+        shows = queries.get_character_details(search)
+        print(shows)
+        return render_template('index.html', shows=shows, search=original_search)
+    return render_template('index.html')
 
 
 @app.route('/design')
