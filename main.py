@@ -12,7 +12,9 @@ def index():
 
 @app.route('/design')
 def design():
-    return render_template('design.html')
+    genres = queries.get_genres()
+    print(genres)
+    return render_template('design.html', genres=genres)
 
 
 def main():
