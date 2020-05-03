@@ -44,27 +44,18 @@
         </div>
     </header>
     <section>
-        <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <form name="year" action="/" method="post">
+            <form name="year" action="/design">
                 <label for="year">Choose a year:</label><br>
-                <select>
+                <select name="year">
                     {% for show in shows %}
-                    <option name="year" value="year">{{ show['year'] }}</option>
+                        <option value="{{ show['s_year'] |int |string }}" >{{ show['s_year'] |int |string}}</option>
                     {% endfor %}
                 </select>
-                <input type="submit">
+                <button id="year" type="submit">Submit</button>
             </form>
         </div>
-        <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+
     </section>
     <footer>
         Copyright, bla-bla
