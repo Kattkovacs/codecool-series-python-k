@@ -21,7 +21,7 @@ ORDER BY
         CASE WHEN %(selected_type)s ='seasons' AND %(order)s = 'DESC' THEN shows.title END DESC,
         CASE WHEN %(selected_type)s ='episodes' AND %(order)s = 'ASC' THEN  e.title END,
         CASE WHEN %(selected_type)s ='episodes' AND %(order)s = 'DESC' THEN shows.title END DESC
-        LIMIT 50;
+        LIMIT 10;
 
         """, {'selected_type': selected_type, 'order': order}
 
@@ -36,6 +36,7 @@ def get_overviews(selected_type):
         FROM shows
         JOIN seasons s on shows.id = s.show_id
         JOIN episodes e on s.id = e.season_id
-        GROUP BY shows.overview, s.overview, e.overview;
+        GROUP BY shows.overview, s.overview, e.overview
+        LIMIT 10;
         """, {'selected_type': selected_type}
     )
