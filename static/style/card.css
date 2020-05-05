@@ -18,3 +18,7 @@
 
     width: 24%;
 }
+
+.highlight {
+    display: none;
+}

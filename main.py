@@ -15,8 +15,10 @@ def design():
     if request.args.get('selected_type'):
         selected_type = request.args.get('selected_type')
         order = request.args.get('order')
+        overviews = queries.get_overviews(selected_type)
         selected_shows = queries.get_query_by_selection(selected_type, order)
-        return render_template('design.html', selected_shows=selected_shows, selected_type=selected_type)
+        return render_template('design.html', selected_shows=selected_shows, selected_type=selected_type,
+                               overviews=overviews)
     return render_template('design.html')
 
 def main():

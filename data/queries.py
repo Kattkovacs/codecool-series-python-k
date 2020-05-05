@@ -26,3 +26,16 @@ ORDER BY
         """, {'selected_type': selected_type, 'order': order}
 
     )
+
+
+def get_overviews(selected_type):
+    return data_manager.execute_select(
+        """
+        SELECT 
+        shows.overview as shows, s.overview as seasons, e.overview as episodes
+        FROM shows
+        JOIN seasons s on shows.id = s.show_id
+        JOIN episodes e on s.id = e.season_id
+        GROUP BY shows.overview, s.overview, e.overview;
+        """, {'selected_type': selected_type}
+    )

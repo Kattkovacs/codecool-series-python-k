@@ -65,12 +65,16 @@
             <div>
             {% if selected_shows %}
             {% for show in selected_shows %}
+                {% for overview in overviews %}
                 {% if selected_type == 'shows' %}
                 <p class="show-card">{{ show['shows'] }}</p>
+                    <p class="overview">{{ overview['shows'] }} hidden</p>
                 {% elif selected_type == 'seasons' %}
                 <p class="show-card">{{ show['seasons'] }}</p>
+                    <p class="overview">{{ overview['seasons'] }} hidden</p>
                 {% elif selected_type == 'episodes' %}
                 <p class="show-card">{{ show['episodes'] }}</p>
+                    <p class="overview">{{ overview['episodes'] }}</p>
                 {% endif %}
             {% endfor %}
             {% endif %}
