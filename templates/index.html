@@ -28,6 +28,8 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </head>
 
@@ -46,14 +48,15 @@
     <section>
         <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
+            <h2>Episodes</h2>
+            {% for show in episodes_sum %}
+                <p class="sum" data-sum="{{ show['episodes'] }}">{{ show['title'] }} {{ show['episodes'] }}</p>
+                {% if show['is_long']==true %}
+                <i class="fas fa-expand"></i>
+                {% elif show['is_long']==false %}
+                <i class="fas fa-compress"></i>
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="card">
             <ul>
