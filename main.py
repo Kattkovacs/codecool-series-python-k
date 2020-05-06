@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
@@ -12,7 +12,10 @@ def index():
 
 @app.route('/design')
 def design():
-    return render_template('design.html')
+    min_episode = request.args.get('episode')
+    min_seas = request.args.get('season')
+    shows = queries.get_min_episode_season(min_episode, min_seas)
+    return render_template('design.html', shows=shows)
 
 
 def main():
