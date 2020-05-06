@@ -14,8 +14,8 @@ def index():
 def design():
     min_episode = request.args.get('episode')
     min_seas = request.args.get('season')
-    shows = queries.get_min_episode_season(min_episode, min_seas)
-    return render_template('design.html', shows=shows)
+    shows_by_min = queries.get_min_episode_season(min_episode, min_seas)
+    return render_template('design.html', shows_by_min=shows_by_min)
 
 
 def main():

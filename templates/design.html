@@ -58,6 +58,19 @@
                 <input type="submit" value="Submit">
             </form>
         </div>
+        <div class="card">
+            <ul>
+            {% if shows_by_min %}
+                {% for show in shows_by_min %}
+                    <li>{{ show['title'] }} seasons:
+                        {{ show['season_number'] }} episodes:
+                        {{ show['episode_number'] }}
+                    </li>
+                {% endfor %}
+            {% endif %}
+            </ul>
+        </div>
+
     </section>
     <footer>
         Copyright, bla-bla
