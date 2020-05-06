@@ -6,8 +6,11 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    shows = queries.get_actors_by_character()
+    sum_char = 0
+    for show in shows:
+        sum_char += int(show['played_characters'])
+    return render_template('index.html', shows=shows, sum_char=sum_char)
 
 
 @app.route('/design')
