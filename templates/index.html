@@ -28,6 +28,7 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </head>
 
@@ -44,10 +45,10 @@
         </div>
     </header>
     <section>
-        <h1 class="title text-center">Welcome page</h1>
+        <h1 class="title text-center">Shows by genre number</h1>
         <div class="card">
-            <label for="numbers">Choose a number:</label>
-            <form name="choose" action="/" method="post">
+            <form name="num-select" action="/" method="post">
+                <label for="num-select">Select a number of genres:</label>
                 <select name="num-select">
                     {% for num in range(1,11) %}
                         <option value="{{ num }}">{{ num }}</option>
@@ -58,20 +59,20 @@
         </div>
     </section>
     <section>
-    <div class="card">
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Number of genres</th>
-            </tr>
-            {% for row in titles %}
-            <tr>
-                        <td>{{ row['title'] }}</td>
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Number of genres</th>
+                </tr>
+                {% for row in titles %}
+                    <tr>
+                        <td class="show-title">{{ row['title'] }}</td>
                         <td>{{ row['numbers_of_genres'] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </section>
     <footer>
         Copyright, bla-bla

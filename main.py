@@ -7,7 +7,8 @@ app = Flask('codecool_series')
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == "POST":
-        select = request.form.get('num-select')
+        select = request.form['num-select']
+        # or request.form.get('num-select')
         titles = queries.get_titles(select)
         return render_template('index.html', titles=titles, select=select)
     return render_template('index.html')
