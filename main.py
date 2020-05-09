@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
@@ -6,7 +6,8 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
+    year = request.args.get('year')
+    shows = queries.get_actors_by_year(year)
     return render_template('index.html', shows=shows)
 
 
