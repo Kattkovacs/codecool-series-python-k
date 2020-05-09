@@ -6,8 +6,9 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    max_season = queries.get_max_season()
+    shows = queries.get_shows_by_season_number()
+    return render_template('index.html', shows=shows, max_season=max_season)
 
 
 @app.route('/design')
