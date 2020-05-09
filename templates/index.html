@@ -28,6 +28,7 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </head>
 
@@ -46,23 +47,36 @@
     <section>
         <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
+            <form action="/" name="actor" method="post">
+
+                <input type="text" name="actor_name" placeholder="Actor name">
+                <input type="submit" value="Submit">
+            </form>
         </div>
         <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
+            <button id="btn">3rd's to red</button>
+            <table>
+                <tr>
+                    <th>Actor name</th>
+                    <th>Show title</th>
+                    <th>Character name</th>
+                </tr>
+                {% for actor in actors_by_char %}
+                <tr class="row">
+
+                        <td>{{ actor['name'] }}</td>
+                        <td>{{ actor['title'] }}</td>
+                        <td>{{ actor['character_name'] }}</td>
+                </tr>
+
                 {% endfor %}
-            </ul>
+            </table>
+
+
+{#        table>tr*3>td*5#}
+{#        .cards>.card*3#}
+
+
         </div>
     </section>
     <footer>
