@@ -6,8 +6,8 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    genres = queries.get_genres_rating()
+    return render_template('index.html', genres=genres)
 
 
 @app.route('/design')
