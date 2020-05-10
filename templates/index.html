@@ -44,25 +44,18 @@
         </div>
     </header>
     <section>
-        <h1 class="title text-center">Welcome page</h1>
+        <h1 class="title text-center">Death actors page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
+            <form action="/{{ genre_name }}">
+                <select name="genre">
+                    {% for genre in genres_by_actors %}
+                        <option value="{{ genre['genre'] }}">{{ genre['genre'] }}</option>
+                    {% endfor %}
+                </select>
+            <button type="submit" name="genre">Submit</button>
+            </form>
         </div>
         <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
         </div>
     </section>
     <footer>

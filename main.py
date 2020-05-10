@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from data import queries
 
 app = Flask('codecool_series')
@@ -6,13 +6,17 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+    if request.args.get('genre'):
+        genre = request.args.get('genre')
+        return render_template('design.html', genre=genre)
+    genres_by_actors = queries.get_genres_by_death_actors()
+    return render_template('index.html', genres_by_actors=genres_by_actors)
 
 
-@app.route('/design')
+@app.route('/design/<genre>', methods=['GET'])
 def design():
-    return render_template('design.html')
+    actors = queries.get_actors(genre)
+    return render_template('design.html', actors=actors)
 
 
 def main():
