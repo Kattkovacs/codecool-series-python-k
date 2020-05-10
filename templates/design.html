@@ -49,10 +49,10 @@
         <div class="card">
             <ol>
                 {% for actor in actors %}
-                    <li class="actor">{{ actor['name'] }}
-                    <p hidden>{{ actor['older'] }}</p>
-                        <p hidden>{{ actor['show_year'] |int}}</p>
-                        <p hidden>{{ actor['age'] |int}}</p></li>
+                    <li class="actor" data-older="{{ actor['older'] }}"
+                        data-year="{{ actor['show_year'] |int}}"
+                        data-age="{{ actor['age'] |int}}">{{ actor['name'] }}
+                    </li>
                 {% endfor %}
             </ol>
         </div>

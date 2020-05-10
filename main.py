@@ -22,7 +22,7 @@ def actors_by_show_age():
             actor['older'] = 'younger'
         else:
             actor['older'] = 'older'
-    return render_template('design.html', actors=actors, year=year, show_age=show_age)
+    return render_template('design.html', actors=actors, year=year)
 
 
 def main():
