@@ -28,6 +28,7 @@
 
     <!-- page specific styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </head>
 
@@ -43,26 +44,38 @@
             <button type="button" id="bt_login">Login</button>
         </div>
     </header>
+    <h1 class="title text-center">2nd seasons 4th and 5th episodes page</h1>
     <section>
-        <h1 class="title text-center">Welcome page</h1>
         <div class="card">
-            <h2>Welcome TV show lovers!</h2>
-            <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
-            <p></p>
-            <p>Okay, actually this is a designed dumb page without any logic.</p>
-            <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
-                in-depth
-                navigation.
-            </p>
-        </div>
-        <div class="card">
-            <ul>
-                {% for show in shows %}
-                    <li>
-                        <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
-                    </li>
+            <table>
+                <tr>
+                    <th>Show title</th>
+                    <th>Episode title</th>
+                    <th>Episode number</th>
+                </tr>
+                {% for episode in fourth %}
+                <tr class="row">
+                    <td>{{ episode['title'] }}</td>
+                    <td>{{ episode['episode'] }}</td>
+                    <td>{{ episode['episode_number'] }}</td>
+                </tr>
                 {% endfor %}
-            </ul>
+            </table>
+
+            <table>
+                <tr>
+                    <th>Show title</th>
+                    <th>Episode title</th>
+                    <th>Episode number</th>
+                </tr>
+                {% for episode in fifth %}
+                <tr class="row">
+                    <td>{{ episode['title'] }}</td>
+                    <td>{{ episode['episode'] }}</td>
+                    <td>{{ episode['episode_number'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </section>
     <footer>
