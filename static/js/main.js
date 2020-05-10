@@ -1,3 +1,5 @@
+// import {dataHandler} from "./data-handler.js";
+
 let allShows = document.querySelectorAll('.all-shows');
 let button = document.querySelector('#btn');
 
@@ -10,3 +12,17 @@ function hideShows() {
         }
     }
 }
+
+
+// JSON fetch
+
+// document.querySelector('#highest-season-number').addEventListener('click', ()=>{
+//     const seasonNumber = document.querySelector('#select-seasons').value;
+//     dataHandler.api_post('/highest-season-number', seasonNumber, highestSeasonNumberCallback)
+// });
+//
+// function highestSeasonNumberCallback(data) {
+//     // data -> query result
+//     const displayArea = document.querySelector("#shows")
+//     // displayArea.innerHTML <= iterate on data and put here
+// }
