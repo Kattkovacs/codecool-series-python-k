@@ -1,15 +1,10 @@
-const actors = document.querySelectorAll('.actor');
-const shows = document.querySelectorAll('.show');
+let trailerButtons = document.querySelectorAll('.trailer');
 
-for (let actor of actors) {
-    actor.addEventListener('mouseenter', highlightShow);
-}
-
-function highlightShow(e) {
-    for (let show of shows) {
-        if (e.target.dataset.actorShowId == show.dataset.showId) {
-            show.classList.add('highlighted');
-        }
+for (let button of trailerButtons) {
+    button.addEventListener('click', trailerButtonHandler);
     }
-}
 
+function trailerButtonHandler(e) {
+    let trailerId = e.target.dataset.trailerUrl;
+    window.open(trailerId,'_blank', 'height=1000, width= 1000')
+}
