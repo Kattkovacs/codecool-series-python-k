@@ -12,8 +12,13 @@ def index():
 
 @app.route('/shows-by-genre/<int:genre_id>', methods=["POST", "GET"])
 def shows_by_genre(genre_id):
+    genres = queries.get_genres()
+    genre_name = ''
+    for genre in genres:
+        if genre['id'] == genre_id:
+            genre_name = genre['name']
     shows = queries.get_shows_by_genre(genre_id)
-    return render_template('shows.html', shows=shows)
+    return render_template('shows.html', shows=shows, genre_name=genre_name)
 
 
 
