@@ -6,7 +6,7 @@ app = Flask('codecool_series')
 
 @app.route('/')
 def index():
-    shows = queries.get_shows()
+    shows = queries.get_actor_cards()
     return render_template('index.html', shows=shows)
 
 
