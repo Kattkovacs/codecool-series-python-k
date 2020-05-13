@@ -4,15 +4,16 @@ from data import queries
 app = Flask('codecool_series')
 
 
-@app.route('/')
-def index():
-    shows = queries.get_shows()
-    return render_template('index.html', shows=shows)
+# @app.route('/')
+# def index():
+#     shows = queries.get_shows_by_deaths()
+#     return render_template('index.html', shows=shows)
 
 
-@app.route('/design')
-def design():
-    return render_template('design.html')
+@app.route('/death/<int:deaths_number>')
+def death(deaths_number):
+    shows = queries.get_shows_by_deaths(deaths_number)
+    return render_template('death.html', shows=shows)
 
 
 def main():
